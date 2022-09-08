@@ -1,5 +1,5 @@
 from urllib import response
-from flask import Flask
+from flask import Flask, redirect, url_for, render_template
 import requests
 import json
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Welcome to the index page"
+    return render_template("index.html")
 
 dataCenters = requests.get("https://universalis.app/api/v2/data-centers")
 
